@@ -84,13 +84,7 @@ time_table_insert = (""" INSERT INTO time (start_time, year, month, week, day, h
 """)
 
 # FIND SONGS
-
-song_select = (""" SELECT songs.song_id, artists.artist_id
-                FROM songs JOIN artists
-                ON songs.artist_id = artists.artist_id
-                WHERE songs.song_id IS NOT NULL AND artists.artist_id IS NOT NULL
-""")
-
+song_select = "SELECT songs.song_id, artists.artist_id FROM songs JOIN artists ON songs.artist_id = artists.artist_id WHERE songs.title = %s AND artists.name=%s AND songs.duration=%s"
 # QUERY LISTS
 
 create_table_queries = [songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
